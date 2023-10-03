@@ -32,7 +32,8 @@ private const val TAG = "HomeScreen"
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    onNavigateToOnBoarding: () -> Unit = {}
 ) {
 
     var paddingValues = remember {
@@ -44,20 +45,12 @@ fun HomeScreen(
             BottomNavigationMenu(
                 navController = navController
             )
-        },
-        floatingActionButton = {
-            OutlinedCircularButton(
-                modifier = Modifier.padding(
-                    bottom = paddingValues.calculateBottomPadding(),
-                    end = paddingValues.calculateEndPadding(LayoutDirection.Ltr)
-                ),
-                internalPadding = 16.dp
-            )
         }
     ) {
         HomeNavGraph(
             navController = navController,
-            paddingValues = it
+            paddingValues = it,
+            onNavigateToOnBoarding = onNavigateToOnBoarding
         )
     }
 }

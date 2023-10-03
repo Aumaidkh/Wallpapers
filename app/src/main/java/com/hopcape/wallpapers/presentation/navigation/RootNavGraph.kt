@@ -38,7 +38,13 @@ fun RootNavGraph(
         composable(
             route = Graph.HomeGraph
         ){
-            HomeScreen()
+            HomeScreen(
+                onNavigateToOnBoarding = {
+                    navController.navigate(
+                        route = Screen.OnBoardingScreen.route
+                    )
+                }
+            )
         }
     }
 }

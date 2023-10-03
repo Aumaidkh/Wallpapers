@@ -15,3 +15,9 @@ val GuardsMenRed = Color(0xFFC10202)
 val PurplishBlue = Color(0xFF6919EC)
 val PurplishRed = Color(0xFFAC0652)
 val Jaguar = Color(0xFF0C0010)
+
+val GradientColors = listOf(
+    DarkYellow,
+    GuardsMenRed,
+    PurplishBlue
+)

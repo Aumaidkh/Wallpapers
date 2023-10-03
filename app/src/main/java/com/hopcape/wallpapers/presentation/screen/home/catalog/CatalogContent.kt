@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hopcape.wallpapers.presentation.composables.LoadingScreen
 import com.hopcape.wallpapers.ui.theme.Jaguar
 
 /**
@@ -18,22 +17,18 @@ import com.hopcape.wallpapers.ui.theme.Jaguar
 @Composable
 fun CatalogContent(
     paddingValues: PaddingValues = PaddingValues(),
-    state: CatalogScreenState = CatalogScreenState()
+    catalogs: List<CatalogItem> = emptyList()
 ) {
-    // Loading
-    if (state.loading){
-        LoadingScreen()
-        return
-    }
     // Showing Catalogs
     LazyColumn(
         modifier = Modifier
             .background(color = Jaguar)
             .padding(
-                bottom = paddingValues.calculateBottomPadding()
+                bottom = paddingValues.calculateBottomPadding(),
+                top = paddingValues.calculateTopPadding()
             )
     ){
-        items(state.catalogs){
+        items(catalogs){
             CatalogComponent(
                 modifier = Modifier.padding(
                     vertical = 4.dp
