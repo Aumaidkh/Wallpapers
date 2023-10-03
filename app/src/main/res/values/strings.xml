@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Wallpapers</string>
+    <string name="big_collection">Big Collection</string>
+    <string name="find_wallpapers_for">Find wallpapers for every taste and every mood\tin constantly updated collection.</string>
+    <string name="stylish_look">Stylish Look</string>
+    <string name="good_editor">Good Editor</string>
+    <string name="set_the_same_wallpaper">Set the same wallpaper on your devices and show your uniqueness.</string>
+    <string name="edit_images_to_your">Edit images to your liking and enjoy on your device.</string>
+    <string name="home">Home</string>
+    <string name="catalog">Catalog</string>
+    <string name="settings">Settings</string>
+</resources>

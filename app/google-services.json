@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "319615105807",
+    "project_id": "wallpapers-ff4ce",
+    "storage_bucket": "wallpapers-ff4ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319615105807:android:0a26bcf9470acba1841c7a",
+        "android_client_info": {
+          "package_name": "com.hopcape.wallpapers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwrkJhI891mLlehAmJFiUnIU6MJkMVMlI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
