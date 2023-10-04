@@ -1,4 +1,4 @@
-package com.hopcape.wallpapers.presentation.screen.home
+package com.hopcape.wallpapers.presentation.screen.home.catalog
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

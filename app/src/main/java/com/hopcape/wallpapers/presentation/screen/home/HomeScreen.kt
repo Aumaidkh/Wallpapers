@@ -56,6 +56,7 @@ fun HomeScreen(
         }
     ) {
         HomeNavGraph(
+            navController = navController,
             paddingValues = it
         )
     }
