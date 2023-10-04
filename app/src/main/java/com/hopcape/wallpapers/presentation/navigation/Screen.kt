@@ -1,8 +1,17 @@
 package com.hopcape.wallpapers.presentation.navigation
 
-sealed class Screen(
-    val route: String
-){
+sealed class Screen(val route: String){
     object OnBoardingScreen: Screen("onboarding")
-    object HomeScreen: Screen("home")
+
+    // Home Screen Nested Navigation Graph
+    object HomeScreen {
+        // Home
+        object Home:Screen("home")
+
+        // Catalog
+        object Catalog: Screen("catalog")
+
+        // Settings
+        object Settings: Screen("settings")
+    }
 }

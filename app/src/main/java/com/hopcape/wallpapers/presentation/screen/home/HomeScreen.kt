@@ -21,36 +21,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.hopcape.wallpapers.presentation.screen.home.composables.BottomNavigationMenu
 import com.hopcape.wallpapers.presentation.screen.home.composables.OutlinedCircularButton
 import com.hopcape.wallpapers.presentation.screen.home.composables.TopBar
 import com.hopcape.wallpapers.presentation.screen.home.composables.bottomNavMenuItems
 
 private const val TAG = "HomeScreen"
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    state: HomeScreenState = HomeScreenState()
+    navController: NavHostController = rememberNavController()
 ) {
-    var selectedOption by remember {
-        mutableStateOf(bottomNavMenuItems.first())
-    }
+
     var paddingValues = remember {
         PaddingValues()
-    }
-    val pagerState = rememberPagerState()
-
-    var title by remember {
-        mutableStateOf("")
     }
 
     Scaffold(
         bottomBar = {
             BottomNavigationMenu(
-                selectedOption = selectedOption,
-                onOptionClicked = {
-                    selectedOption = it
-                }
+                navController = navController
             )
         },
         floatingActionButton = {
@@ -63,20 +55,9 @@ fun HomeScreen(
             )
         }
     ) {
-        paddingValues = it
-        // When Loading Show Circular Loader
-        if (state.loading){
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
-                CircularProgressIndicator()
-            }
-        } else {
-            HomeContent(
-                pagerState = pagerState,
-                images = state.wallpapers,
-                onMoreClicked = {}
-            )
-        }
-
+        HomeNavGraph(
+            paddingValues = it
+        )
     }
 }
 

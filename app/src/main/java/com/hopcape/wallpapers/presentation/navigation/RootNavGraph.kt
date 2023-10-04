@@ -1,49 +1,44 @@
 package com.hopcape.wallpapers.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.hopcape.wallpapers.presentation.screen.home.HomeScreen
-import com.hopcape.wallpapers.presentation.screen.home.HomeScreenViewModel
 import com.hopcape.wallpapers.presentation.screen.onboarding.OnBoardingScreen
 
+/**
+ * Root navigation graph of the app
+ * Contains below nav graphs
+ * 1. Onboarding Graph
+ * 2. Home Graph*/
 @Composable
-fun WallpapersNavGraph(
+fun RootNavGraph(
     navController: NavHostController = rememberNavController()
 ) {
     NavHost(
         navController = navController,
         startDestination = Screen.OnBoardingScreen.route
     ){
-        // Define OnBoarding Route Here
+        // OnBoarding Screen
         composable(
             route = Screen.OnBoardingScreen.route
         ){
             OnBoardingScreen(
                 onNavigateToHome = {
+                    navController.popBackStack()
                     navController.navigate(
-                        route = Screen.HomeScreen.route
-                    ){
-                        popUpTo(route = Screen.OnBoardingScreen.route){
-                            inclusive = true
-                        }
-                    }
+                        route = Graph.HomeGraph
+                    )
                 }
             )
         }
-        // Define Home Route Here
+        // Home Graph
         composable(
-            route = Screen.HomeScreen.route
+            route = Graph.HomeGraph
         ){
-            val viewModel: HomeScreenViewModel = hiltViewModel()
-            val state = viewModel.state.collectAsState()
-            HomeScreen(
-                state = state.value
-            )
+            HomeScreen()
         }
     }
 }
