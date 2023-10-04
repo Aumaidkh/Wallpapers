@@ -35,7 +35,8 @@ fun SettingsContent(
             )
             .fillMaxSize()
             .padding(
-                bottom = paddingValues.calculateBottomPadding()
+                bottom = paddingValues.calculateBottomPadding(),
+                top = paddingValues.calculateTopPadding()
             )
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
